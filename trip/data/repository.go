@@ -1,7 +1,7 @@
 package data
 
 import (
-	"trip/domain"
+	"big-life-backend/trip/domain"
 )
 
 //PersonRepository contains a slice of Trip

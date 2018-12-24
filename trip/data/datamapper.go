@@ -2,7 +2,7 @@ package data
 
 import (
 	"errors"
-	"trip/domain"
+	"big-life-backend/trip/domain"
 )
 
 func (pr PersonRepository) GetTrip(id int) (domain.Trip, error) {

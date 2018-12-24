@@ -1,8 +1,8 @@
 package service
 
 import (
-	"trip/data"
-	"trip/domain"
+	"big-life-backend/trip/data"
+	"big-life-backend/trip/domain"
 )
 
 type TripService struct {

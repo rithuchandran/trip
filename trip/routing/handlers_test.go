@@ -7,9 +7,9 @@ import (
 	"net/http/httptest"
 	"strings"
 	"testing"
-	"trip/domain"
-	"trip/mock_service"
-	"trip/routing"
+	"big-life-backend/trip/domain"
+	"big-life-backend/trip/mock_service"
+	"big-life-backend/trip/routing"
 )
 
 func setup(t *testing.T) (*routing.Server, *mock_service.MockTripServiceInt, *httptest.ResponseRecorder) {

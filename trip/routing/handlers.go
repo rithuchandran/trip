@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net/http"
 	"strconv"
-	"trip/domain"
+	"big-life-backend/trip/domain"
 
 	"github.com/gorilla/mux"
 )

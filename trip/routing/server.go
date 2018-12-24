@@ -2,7 +2,7 @@ package routing
 
 import (
 	"net/http"
-	"trip/service"
+	"big-life-backend/trip/service"
 
 	"github.com/gorilla/mux"
 )
