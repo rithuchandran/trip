@@ -6,7 +6,7 @@ import (
 
 //PersonRepository contains a slice of Trip
 type PersonRepository struct {
-	trips *[]domain.Trip
+	trips []domain.Trip
 }
 
 var sampleTrips = []domain.Trip{
@@ -15,5 +15,5 @@ var sampleTrips = []domain.Trip{
 }
 
 func NewPersonRepository() *PersonRepository {
-	return &PersonRepository{trips: &sampleTrips}
+	return &PersonRepository{trips: sampleTrips}
 }

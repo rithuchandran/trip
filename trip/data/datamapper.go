@@ -5,35 +5,35 @@ import (
 	"big-life-backend/trip/domain"
 )
 
-func (pr PersonRepository) GetTrip(id int) (domain.Trip, error) {
+func (pr *PersonRepository) GetTrip(id int) (domain.Trip, error) {
 	tr, _, err := findTrip(pr, id)
 	return tr, err
 }
 
-func (pr PersonRepository) CreateTrip(trip domain.Trip) {
-	*pr.trips = append(*pr.trips, trip)
+func (pr *PersonRepository) CreateTrip(trip domain.Trip) {
+	pr.trips = append(pr.trips, trip)
 }
-func (pr PersonRepository) UpdateTrip(id int, trip domain.Trip) {
-	for i, tr := range *pr.trips {
+func (pr *PersonRepository) UpdateTrip(id int, trip domain.Trip) {
+	for i, tr := range pr.trips {
 		if id == tr.Id {
-			(*pr.trips)[i] = trip
-			(*pr.trips)[i].Id = id
+			pr.trips[i] = trip
+			pr.trips[i].Id = id
 			return
 		}
 	}
 }
 
-func (pr PersonRepository) DeleteTrip(id int) error {
+func (pr *PersonRepository) DeleteTrip(id int) error {
 	_, i, err := findTrip(pr, id)
 	if err != nil {
 		return err
 	}
-	*pr.trips = append((*pr.trips)[:i], (*pr.trips)[i+1:]...)
+	pr.trips = append((pr.trips)[:i], (pr.trips)[i+1:]...)
 	return nil
 }
 
-func findTrip(pr PersonRepository, id int) (domain.Trip, int, error) {
-	for i, trip := range *pr.trips {
+func findTrip(pr *PersonRepository, id int) (domain.Trip, int, error) {
+	for i, trip := range pr.trips {
 		if id == trip.Id {
 			return trip, i, nil
 		}

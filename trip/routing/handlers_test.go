@@ -13,9 +13,9 @@ import (
 )
 
 func setup(t *testing.T) (*routing.Server, *mock_service.MockTripServiceInt, *httptest.ResponseRecorder) {
-	mockctrl := gomock.NewController(t)
-	defer mockctrl.Finish()
-	sr := mock_service.NewMockTripServiceInt(mockctrl)
+	mockcontroller := gomock.NewController(t)
+	defer mockcontroller.Finish()
+	sr := mock_service.NewMockTripServiceInt(mockcontroller)
 	s := routing.NewServer(sr, mux.NewRouter())
 	rr := httptest.NewRecorder()
 	s.Routes()
@@ -24,7 +24,6 @@ func setup(t *testing.T) (*routing.Server, *mock_service.MockTripServiceInt, *ht
 }
 
 func TestGetTrip(t *testing.T) {
-
 	s, sr, rr := setup(t)
 
 	req, _ := http.NewRequest("GET", "/trip/1", nil)

@@ -16,16 +16,17 @@ func TestPersonRepository_GetTrip(t *testing.T) {
 
 func TestPersonRepository_CreateTrip(t *testing.T) {
 	trip := domain.Trip{Id: 3, Destination: "SomeWhere", Origin: "Here"}
-	data.NewPersonRepository().CreateTrip(trip)
-	tr, _ := data.NewPersonRepository().GetTrip(3)
+	personRepository := data.NewPersonRepository()
+	personRepository.CreateTrip(trip)
+	tr, _ := personRepository.GetTrip(3)
 	assert.Equal(t, trip, tr, nil)
 }
 
 func TestPersonRepository_UpdateTrip(t *testing.T) {
-	trip := domain.Trip{Destination: "abc", Origin: "def"}
+	trip := domain.Trip{Id:2,Destination: "abc", Origin: "def"}
 	data.NewPersonRepository().UpdateTrip(2, trip)
 	tr, _ := data.NewPersonRepository().GetTrip(2)
-	assert.Equal(t, trip.Origin, tr.Origin, nil)
+	assert.Equal(t, trip, tr, nil)
 }
 
 //noinspection GoUnhandledErrorResult
