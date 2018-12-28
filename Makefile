@@ -1,4 +1,5 @@
 setup:
+	pwd
 	go get -u github.com/golang/dep/cmd/dep
 	dep init
 
@@ -10,4 +11,5 @@ build-deps:
 	dep ensure
 
 start: build-deps compile
+	pwd
 	./out/main
