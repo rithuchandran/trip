@@ -1,8 +1,8 @@
 package routing
 
 import (
-	"net/http"
 	"big-life-backend/trip/service"
+	"net/http"
 
 	"github.com/gorilla/mux"
 )

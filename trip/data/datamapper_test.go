@@ -1,10 +1,10 @@
 package data_test
 
 import (
-	"github.com/stretchr/testify/assert"
-	"testing"
 	"big-life-backend/trip/data"
 	"big-life-backend/trip/domain"
+	"github.com/stretchr/testify/assert"
+	"testing"
 )
 
 func TestPersonRepository_GetTrip(t *testing.T) {
@@ -23,7 +23,7 @@ func TestPersonRepository_CreateTrip(t *testing.T) {
 }
 
 func TestPersonRepository_UpdateTrip(t *testing.T) {
-	trip := domain.Trip{Id:2,Destination: "abc", Origin: "def"}
+	trip := domain.Trip{Id: 2, Destination: "abc", Origin: "def"}
 	data.NewPersonRepository().UpdateTrip(2, trip)
 	tr, _ := data.NewPersonRepository().GetTrip(2)
 	assert.Equal(t, trip, tr, nil)

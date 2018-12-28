@@ -1,9 +1,9 @@
 package mock_service
 
 import (
+	"big-life-backend/trip/domain"
 	"github.com/golang/mock/gomock"
 	"reflect"
-	"big-life-backend/trip/domain"
 )
 
 // MockTripServiceInt is a mock of TripServiceInt interface

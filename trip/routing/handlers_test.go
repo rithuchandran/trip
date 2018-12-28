@@ -1,15 +1,15 @@
 package routing_test
 
 import (
+	"big-life-backend/trip/domain"
+	"big-life-backend/trip/mock_service"
+	"big-life-backend/trip/routing"
 	"github.com/golang/mock/gomock"
 	"github.com/gorilla/mux"
 	"net/http"
 	"net/http/httptest"
 	"strings"
 	"testing"
-	"big-life-backend/trip/domain"
-	"big-life-backend/trip/mock_service"
-	"big-life-backend/trip/routing"
 )
 
 func setup(t *testing.T) (*routing.Server, *mock_service.MockTripServiceInt, *httptest.ResponseRecorder) {

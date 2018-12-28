@@ -1,11 +1,11 @@
 package routing
 
 import (
+	"big-life-backend/trip/domain"
 	"encoding/json"
 	"fmt"
 	"net/http"
 	"strconv"
-	"big-life-backend/trip/domain"
 
 	"github.com/gorilla/mux"
 )
