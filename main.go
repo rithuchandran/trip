@@ -1,9 +1,9 @@
 package main
 
 import (
-	"big-life-backend/trip/data"
-	"big-life-backend/trip/routing"
-	"big-life-backend/trip/service"
+	"trip/data"
+	"trip/routing"
+	"trip/service"
 
 	"github.com/gorilla/mux"
 )
