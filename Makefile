@@ -1,7 +1,6 @@
 setup:
-	pwd
-	sudo go get -u github.com/golang/dep/cmd/dep
-	sudo dep init
+	go get -u github.com/golang/dep/cmd/dep
+	dep init
 
 compile:
 	mkdir -p out
@@ -11,5 +10,4 @@ build-deps:
 	dep ensure
 
 start: build-deps compile
-	pwd
 	./out/main
