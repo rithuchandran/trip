@@ -12,5 +12,3 @@
 out/
 .idea/
 *.iml
-vendor/
-Go*.*

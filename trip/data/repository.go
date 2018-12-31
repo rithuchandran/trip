@@ -1,7 +1,7 @@
 package data
 
 import (
-	"big-life-backend/trip/domain"
+	"bitbucket.org/big_life/big-life-backend/trip/domain"
 )
 
 //PersonRepository contains a slice of Trip

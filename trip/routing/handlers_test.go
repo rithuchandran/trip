@@ -7,15 +7,15 @@ import (
 	"net/http/httptest"
 	"strings"
 	"testing"
-	"big-life-backend/trip/domain"
-	"big-life-backend/trip/mock_service"
-	"big-life-backend/trip/routing"
+	"bitbucket.org/big_life/big-life-backend/trip/domain"
+	"bitbucket.org/big_life/big-life-backend/trip/mock_service"
+	"bitbucket.org/big_life/big-life-backend/trip/routing"
 )
 
 func setup(t *testing.T) (*routing.Server, *mock_service.MockTripServiceInt, *httptest.ResponseRecorder) {
-	mockcontroller := gomock.NewController(t)
-	defer mockcontroller.Finish()
-	sr := mock_service.NewMockTripServiceInt(mockcontroller)
+	mockController := gomock.NewController(t)
+	defer mockController.Finish()
+	sr := mock_service.NewMockTripServiceInt(mockController)
 	s := routing.NewServer(sr, mux.NewRouter())
 	rr := httptest.NewRecorder()
 	s.Routes()
