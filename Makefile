@@ -1,13 +1,9 @@
-setup:
-	go get -u github.com/golang/dep/cmd/dep
-	dep init
-
 compile:
 	mkdir -p out
-	go build -o out/main
+	go build -o out/big-life-backend
 
-build-deps:
-	dep ensure
+test:
+	go test ./...
 
-start: build-deps compile
-	./out/main
+start: compile
+	./out/big-life-backend
