@@ -1,10 +1,10 @@
 package data_test
 
 import (
-	"github.com/stretchr/testify/assert"
-	"testing"
 	"bitbucket.org/big_life/big-life-backend/trip/data"
 	"bitbucket.org/big_life/big-life-backend/trip/domain"
+	"github.com/stretchr/testify/assert"
+	"testing"
 )
 
 func TestPersonRepository_GetTrip(t *testing.T) {

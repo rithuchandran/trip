@@ -10,8 +10,8 @@ type PersonRepository struct {
 }
 
 var sampleTrips = []domain.Trip{
-	{Id: 1, Origin: "Bangalore", Destination: "Mysore",},
-	{Id: 2, Origin: "Bangalore", Destination: "Chennai",},
+	{Id: 1, Origin: "Bangalore", Destination: "Mysore"},
+	{Id: 2, Origin: "Bangalore", Destination: "Chennai"},
 }
 
 func NewPersonRepository() *PersonRepository {
