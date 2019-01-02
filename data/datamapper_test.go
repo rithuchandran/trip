@@ -1,10 +1,10 @@
 package data_test
 
 import (
+	"bitbucket.org/big_life/big-life-backend/trip/data"
+	"bitbucket.org/big_life/big-life-backend/trip/domain"
 	"github.com/stretchr/testify/assert"
 	"testing"
-	"big-life-backend/trip/data"
-	"big-life-backend/trip/domain"
 )
 
 func TestPersonRepository_GetTrip(t *testing.T) {
@@ -26,6 +26,7 @@ func TestPersonRepository_UpdateTrip(t *testing.T) {
 	trip := domain.Trip{Id:2,Destination: "abc", Origin: "def"}
 	data.NewTripRepository().UpdateTrip(2, trip)
 	tr, _ := data.NewTripRepository().GetTrip(2)
+
 	assert.Equal(t, trip, tr, nil)
 }
 
