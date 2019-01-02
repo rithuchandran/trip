@@ -15,59 +15,59 @@ import (
 func setup(t *testing.T) (*routing.Server, *mock_service.MockTripServiceInt, *httptest.ResponseRecorder) {
 	mockcontroller := gomock.NewController(t)
 	defer mockcontroller.Finish()
-	sr := mock_service.NewMockTripServiceInt(mockcontroller)
-	s := routing.NewServer(sr, mux.NewRouter())
-	rr := httptest.NewRecorder()
-	s.Routes()
+	mockTripService := mock_service.NewMockTripServiceInt(mockcontroller)
+	server := routing.NewServer(mockTripService, mux.NewRouter())
+	responseRecorder := httptest.NewRecorder()
+	server.Routes()
 
-	return s, sr, rr
+	return server, mockTripService, responseRecorder
 }
 
 func TestGetTrip(t *testing.T) {
-	s, sr, rr := setup(t)
+	server, mockTripService, responseRecorder := setup(t)
 
 	req, _ := http.NewRequest("GET", "/trip/1", nil)
-	sr.EXPECT().GetTrip(1).Times(1)
+	mockTripService.EXPECT().GetTrip(1).Times(1)
 
-	s.Router.ServeHTTP(rr, req)
+	server.Router.ServeHTTP(responseRecorder, req)
 
 }
 
 func TestCreateTrip(t *testing.T) {
-	s, sr, rr := setup(t)
+	server, mockTripService, responseRecorder := setup(t)
 	trip := `{
 	"origin" : "India",
 	"destination": "New Jersey"
 	}`
 	req, _ := http.NewRequest("POST", "/trip/3", strings.NewReader(trip))
 
-	sr.EXPECT().CreateTrip(domain.Trip{Id: 3, Origin: "India", Destination: "New Jersey"}).Times(1)
+	mockTripService.EXPECT().CreateTrip(domain.Trip{Id: 3, Origin: "India", Destination: "New Jersey"}).Times(1)
 
-	s.Router.ServeHTTP(rr, req)
+	server.Router.ServeHTTP(responseRecorder, req)
 
 }
 
 func TestServer_UpdateTripHandler(t *testing.T) {
-	s, sr, rr := setup(t)
+	server, mockTripService, responseRecorder := setup(t)
 	trip := `{
 	"origin" : "India",
 	"destination": "New Jersey"
 	}`
 	req, _ := http.NewRequest("PUT", "/trip/2", strings.NewReader(trip))
 
-	sr.EXPECT().UpdateTrip(2, domain.Trip{Origin: "India", Destination: "New Jersey"}).Times(1)
+	mockTripService.EXPECT().UpdateTrip(2, domain.Trip{Origin: "India", Destination: "New Jersey"}).Times(1)
 
-	s.Router.ServeHTTP(rr, req)
+	server.Router.ServeHTTP(responseRecorder, req)
 
 }
 
 func TestServer_DeleteHandler(t *testing.T) {
 
-	s, sr, rr := setup(t)
+	server, mockTripService, responseRecorder := setup(t)
 	req, _ := http.NewRequest("DELETE", "/trip/1", nil)
 
-	sr.EXPECT().DeleteTrip(1).Times(1)
+	mockTripService.EXPECT().DeleteTrip(1).Times(1)
 
-	s.Router.ServeHTTP(rr, req)
+	server.Router.ServeHTTP(responseRecorder, req)
 
 }

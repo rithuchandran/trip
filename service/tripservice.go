@@ -6,7 +6,7 @@ import (
 )
 
 type TripService struct {
-	repository *data.PersonRepository
+	repository *data.TripRepository
 }
 
 type TripServiceInt interface {
@@ -16,7 +16,7 @@ type TripServiceInt interface {
 	DeleteTrip(int) error
 }
 
-func NewTripService(pr *data.PersonRepository) *TripService {
+func NewTripService(pr *data.TripRepository) *TripService {
 	return &TripService{repository: pr}
 }
 

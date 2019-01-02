@@ -1,19 +1,19 @@
 package data
 
 import (
-	"errors"
 	"big-life-backend/trip/domain"
+	"errors"
 )
 
-func (pr *PersonRepository) GetTrip(id int) (domain.Trip, error) {
+func (pr *TripRepository) GetTrip(id int) (domain.Trip, error) {
 	tr, _, err := findTrip(pr, id)
 	return tr, err
 }
 
-func (pr *PersonRepository) CreateTrip(trip domain.Trip) {
+func (pr *TripRepository) CreateTrip(trip domain.Trip) {
 	pr.trips = append(pr.trips, trip)
 }
-func (pr *PersonRepository) UpdateTrip(id int, trip domain.Trip) {
+func (pr *TripRepository) UpdateTrip(id int, trip domain.Trip) {
 	for i, tr := range pr.trips {
 		if id == tr.Id {
 			pr.trips[i] = trip
@@ -23,7 +23,7 @@ func (pr *PersonRepository) UpdateTrip(id int, trip domain.Trip) {
 	}
 }
 
-func (pr *PersonRepository) DeleteTrip(id int) error {
+func (pr *TripRepository) DeleteTrip(id int) error {
 	_, i, err := findTrip(pr, id)
 	if err != nil {
 		return err
@@ -32,7 +32,7 @@ func (pr *PersonRepository) DeleteTrip(id int) error {
 	return nil
 }
 
-func findTrip(pr *PersonRepository, id int) (domain.Trip, int, error) {
+func findTrip(pr *TripRepository, id int) (domain.Trip, int, error) {
 	for i, trip := range pr.trips {
 		if id == trip.Id {
 			return trip, i, nil

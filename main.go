@@ -9,9 +9,9 @@ import (
 )
 
 func main() {
-	personRepository := data.NewPersonRepository()
+	tripRepository := data.NewTripRepository()
 
-	tripService := service.NewTripService(personRepository)
+	tripService := service.NewTripService(tripRepository)
 
 	router := mux.NewRouter()
 
