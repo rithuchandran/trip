@@ -1,8 +1,8 @@
 package data_test
 
 import (
-	"bitbucket.org/big_life/big-life-backend/trip/data"
-	"bitbucket.org/big_life/big-life-backend/trip/domain"
+	"github.com/rithuchandran/trip/data"
+	"github.com/rithuchandran/trip/domain"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )

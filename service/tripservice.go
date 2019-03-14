@@ -1,8 +1,8 @@
 package service
 
 import (
-	"bitbucket.org/big_life/big-life-backend/trip/data"
-	"bitbucket.org/big_life/big-life-backend/trip/domain"
+	"github.com/rithuchandran/trip/data"
+	"github.com/rithuchandran/trip/domain"
 )
 
 type TripService struct {

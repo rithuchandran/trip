@@ -1,9 +1,10 @@
 package routing_test
 
 import (
-	"bitbucket.org/big_life/big-life-backend/trip/domain"
-	"bitbucket.org/big_life/big-life-backend/trip/mock_service"
-	"bitbucket.org/big_life/big-life-backend/trip/routing"
+	"github.com/rithuchandran/trip/domain"
+	"github.com/rithuchandran/trip/logger"
+	"github.com/rithuchandran/trip/mock_service"
+	"github.com/rithuchandran/trip/routing"
 	"github.com/golang/mock/gomock"
 	"github.com/gorilla/mux"
 	"net/http"
@@ -16,7 +17,7 @@ func setup(t *testing.T) (*routing.Server, *mock_service.MockTripServiceInt, *ht
 	mockcontroller := gomock.NewController(t)
 	defer mockcontroller.Finish()
 	mockTripService := mock_service.NewMockTripServiceInt(mockcontroller)
-	server := routing.NewServer(mockTripService, mux.NewRouter())
+	server := routing.NewServer(mockTripService, mux.NewRouter(),logger.NewLogger())
 	responseRecorder := httptest.NewRecorder()
 	server.Routes()
 

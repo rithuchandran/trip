@@ -1,10 +1,9 @@
-module bitbucket.org/big_life/big-life-backend
+module github.com/rithuchandran/trip
 
 require (
-	github.com/davecgh/go-spew v1.1.1
+	cloud.google.com/go v0.37.0
 	github.com/golang/mock v1.2.0
-	github.com/gorilla/context v1.1.1
-	github.com/gorilla/mux v1.6.2
-	github.com/pmezard/go-difflib v1.0.0
-	github.com/stretchr/testify v1.2.2
+	github.com/gorilla/mux v1.7.0
+	github.com/stretchr/testify v1.3.0
+	google.golang.org/appengine v1.4.0
 )

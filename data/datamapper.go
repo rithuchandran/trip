@@ -1,8 +1,8 @@
 package data
 
 import (
-	"bitbucket.org/big_life/big-life-backend/trip/domain"
 	"errors"
+	"github.com/rithuchandran/trip/domain"
 )
 
 func (pr *TripRepository) GetTrip(id int) (domain.Trip, error) {
